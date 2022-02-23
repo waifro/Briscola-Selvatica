@@ -1,30 +1,36 @@
 
-// per comporre i array si usa questa sintasse:
-// var variabile = [ "array 1", "array 2" , "etc" ];
-/*
-var raw_image_cards = new Image();
-raw_image_cards = "resources/images/pc_carte.jpg";
+/* funzioni */
+function RenderImage(url, x, y, w, h, funct) {
 
-var images = [];
-images.push(raw_images_cards);
-*/
-var img = document.createElement("img");
-img.src = "resources/images/pc_carte.jpg";
-var src = document.getElementById("x");
+    let canvas =    document.getElementById("canvas");
+    let ctx =       canvas.getContext("2d");
 
-src.appendChild(img);
+    // funzione su richiesta
+    if (funct != undefined) {
+        funct();
+    }
 
-var img = new Image();
-var div = document.getElementById("x");
+    // caricare le proprietà
+    var image = new Image();
 
-img.onload = function () {
-    div.innerHTML += "<img src="'+resources/images/pc_carte.jpg+'" >
+    // su caricamento, caricare immagine sul canvas
+    image.onload = function() {
+        ctx.drawImage(image, x, y, w, h);
+    }
+
+    // sorgente immagine (anche locale)
+    image.src = url;
+
+    return image;
 }
 
-/*
-// 4 gruppi di cui conterranno 10 carte e le proprie caratteristiche
-var oggetto_spade = null;
-var oggetto_denari = null;
-var oggetto_bastoni = null;
-var oggetto_coppe = null;
-*/
+function main_init() {
+    
+    console.log("window.x " + innerWidth);
+    console.log("window.h " + innerHeight);
+
+    RenderImage("resources/images/test.png", 50, 50, 50, 50);
+
+}
+
+//var mazzo [] 

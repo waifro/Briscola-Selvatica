@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html>
+
+        <meta charset=utf-8/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+        <link rel="stylesheet" href="sfondo.css">
+        <h1>briscolaus selvatica</h1> 
+        <div id="hexagon"></div> 
+
         <head>
                 <!-- titolo pagina -->
-                <title>Briscola Dioporco</title>
+                <title>Briscola</title>
 
                 <!-- DAFARE: mettere immagine sull'icona della pagina -->
                 <!-- <link rel="icon" type="image/x-icon" href="favicon.png"> -->
@@ -12,13 +20,17 @@
         </head>
 
         <body>
-                
-                <div id="x"></div>
-                <script src="main.js"></script>
+                <script src="./main.js"></script>
+                <script src="./resources.js"></script>
 
-                <h1>Qualcosa è andato storto</h1>
+                <button onClick="main_init()">test</button><span id="bho"></span>
+
                 
-                <!-- <button onClick="ciao()">clicca</button> -->
+                <canvas id="canvas" height=device-height width=device-width style="border:1px solid #000000;"></canvas>
+
+                
+
+                <!-- <button onClick="main_init()">clicca</button> -->
                 <!-- <input type="button" value="clicca" onClick=ciao()> -->
                 
         </body>
