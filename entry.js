@@ -6,8 +6,8 @@ var window_h = innerHeight;
 
 function entry_init() {
     
-    console.log("window.x " + innerWidth);
-    console.log("window.h " + innerHeight);
+    console.log("window.x " + window_w);
+    console.log("window.h " + window_h);
 
     gioco_inizio();
 
