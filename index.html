@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html>
 
-        <meta charset=utf-8/>
-        <meta name="viewport" content="minimal-ui, width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+        <!-- container globale (Applicabile a tutte le risorse all'interno)-->
+        <div id="container">
 
-        <link rel="stylesheet" href="sfondo.css">
-        <h1>briscolaus selvatica</h1>
-        <h2>tunz tunz</h2>
-        <button id="bottonetest" onClick="entry_init()">test</button>
+                <meta charset=utf-8/>
+                <meta name="viewport" content="minimal-ui, width=device-width, height=device-height, initial-scale=1, user-scalable=no">
 
-        <head>
                 <!-- titolo pagina -->
                 <title>Briscola</title>
 
                 <!-- DAFARE: mettere immagine sull'icona della pagina -->
                 <!-- <link rel="icon" type="image/x-icon" href="favicon.png"> -->
 
-                <!-- possiamo personalizzare le testate con CSS -->
-                <style></style>
-        </head>
+                <link rel="stylesheet" href="sfondo.css">
 
-        <body>
-                <script src="./gioco.js"></script>
-                <script src="./entry.js"></script>
-                <script src="./javascript/canvas.js"></script>
+                <head>
+                        <!-- container per testate -->
+                        <h1>briscolaus selvatica</h1>
+                        <h2>tunz tunz</h2>
 
-                
-                <span id="bho"></span>
+                        <!-- possiamo personalizzare le testate con CSS -->
+                        <style></style>
+                </head>
 
-                <canvas id="canvas">Qualcosa e' andato storto</canvas>
+                <body>
+                        <!-- inizializzazione dei file javascript -->
+                        <script src="./gioco.js"></script>
+                        <script src="./entry.js"></script>
+                        <script src="./javascript/canvas.js"></script>
 
+                        <!-- testing -->
+                        <button id="bottonetest" onClick="entry_init()">test</button>
+                        <span id="bho"></span>
+
+                        <!-- canvas non sopportato -->
+                        <canvas id="canvas">Qualcosa e' andato storto</canvas>
         
-                <!-- <button onClick="main_init()">clicca</button> -->
-                <!-- <input type="button" value="clicca" onClick=ciao()> -->
+                        <!-- <button onClick="main_init()">clicca</button> -->
+                        <!-- <input type="button" value="clicca" onClick=ciao()> -->
                 
-        </body>
+                </body>
+
+        </div>
 </html>

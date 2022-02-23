@@ -9,7 +9,7 @@ function entry_init() {
     console.log("window.x " + innerWidth);
     console.log("window.h " + innerHeight);
 
-    
+    gioco_inizio();
 
     canvas_RAW_GeneraFigura("risorse/img/pc_carte.jpg", 50, 50, 50, 50);
 
