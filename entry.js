@@ -29,7 +29,7 @@ function controlla_dispositivo() {
 function entry_init() {
     
     // verifichiamo che non si stia utilizzando un dispositivo mobile
-    if (controlla_dispositivo() == true) return;
+    //if (controlla_dispositivo() == true) return;
 
     console.log("window.x " + window_w);
     console.log("window.h " + window_h);
