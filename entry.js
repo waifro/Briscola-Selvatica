@@ -36,8 +36,6 @@ function entry_init() {
 
     gioco_inizio();
 
-    canvas_RAW_GeneraFigura("risorse/img/pc_carte.jpg", 50, 50, 50, 50);
-
 }
 
 
