@@ -1,21 +1,24 @@
 
-/* non testato (per dispositivi mobili)
+/* non testato (per dispositivi mobili) */
 
 body, html {
   background-color: rgba(3, 90, 0, 0.774);
 }
 
 #container {
-  width: device-width;
-  height: device-height;
+  align: "center";
+
+  width: 90%;
+  height: 90%;
 
   position: absolute;
-  top: 15%;
-  left: 40%;
-  margin: -100px 0 0 -175px;
+  top: 5%;
+  left: 5%;
+  /* margin: -100px 0 0 -175px; */
 }
 
 canvas {
+  
   width: 100%;
   height: 100%;
   
@@ -23,13 +26,14 @@ canvas {
 
   border: 1px solid #000000;
 }
-*/
 
+
+/*
 body, html {
   /*
   height: 100%;
   margin: 0;
-  */
+  
   background-color: rgba(3, 90, 0, 0.774);
 }
 
@@ -69,9 +73,9 @@ canvas {
   right: 30%;
   bottom: 30%;
   top: 30%;
-  */
+  
 }
-
+*/
 /*
 body {
   background-color: rgba(3, 90, 0, 0.774);
