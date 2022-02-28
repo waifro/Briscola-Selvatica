@@ -1,4 +1,4 @@
-function raw_carta() {
+function rect() {
 
     this.x = 0;
     this.y = 0;
@@ -8,64 +8,83 @@ function raw_carta() {
     return this;
 }
 
-function raw_imagesize(pathname) {
-    this.w = 0;
-    this.h = 0;
-
-    let img = new Image();
+function image_rect(pathname) {
+    
+    var img = new Image();
     img.src = pathname;
 
     img.onload = function() {
         this.w = img.width;
         this.h = img.height;
-        console.log("w: " + this.w);
-        console.log("h: " + this.h);
     }
 
-    return this;
+    return img;
 }
 
-function inizializza_mazzo(pathname) {
+function delay(time) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve('resolved');
+      }, time);
+    });
+}
 
-    var size = raw_imagesize(pathname);
-    
-    if (size.w == 0 && size.h == 0) return;
+async function inizializza_mazzo(pathname) {
 
-    var array = [];
+    var size = loadImage("risorse/img/pc_carte.jpg", function() {
 
-    var foo = size.width / 10;
-    var bar = size.height / 4;   
-
-    var i, o;
-
-    for (var n = 0; n < 40; n++) {
-
-        buffer = new raw_carta();
-
-        buffer.x = i;
-        buffer.y = o;
-        buffer.w = size.w;
-        buffer.h = size.h;
-
-        array[n] = buffer;
-
-        i += size.w;
-        if (n == 10 || n == 20 || n == 30) {
-            o += size.h;
-            alert(buffer.x + "x" + buffer.y + " wh: " + buffer.w + "x" + buffer.h);
+        while (size.complete != true) {
+            await delay(1000);
+            console.log("loading");
         }
-    }
+    
+        console.log("size img: " + size.x + "x" + size.y);
+    
+        var array = new Array();
+        var buffer;
+    
+        var foo = size.width / 10;
+        var bar = size.height / 4;   
+    
+        var i = 0;
+        var o = 0;
+    
+        for (var n = 0; n < 40; n++) {
+    
+            buffer = new rect();
+    
+            buffer.x = i;
+            buffer.y = o;
+            buffer.w = foo;
+            buffer.h = bar;
+    
+            array[n] = buffer;
+    
+            i += foo;
+            if (n == 10 || n == 20 || n == 30) {
+                i = 0;
+                o += bar;
+                //alert(buffer.x + "x" + buffer.y + " wh: " + buffer.w + "x" + buffer.h);
+            }
+        }
+    
+        return array;
 
-    return array;
+    });// image_rect(pathname);
 }
 
 function gioco_inizio() {
 
+    //background
+    //canvas_RAW_GeneraFigura("risorse/img/poker_background.jpg", 0, 0, 500, 500);
+
     var mazzo = inizializza_mazzo("risorse/img/pc_carte.jpg");
 
-    canvas_RAW_GeneraFigura("risorse/img/poker_background.jpg", 0, 0, canvas.width, canvas.height);
+    delay(1000);
+    //loadImage("risorse/img/pc_carte.jpg");
 
-    //alert(mazzo[1].x + "x" + mazzo[1].y + " wh: " + mazzo[1].w + "x" + mazzo[1].h);
-    console.log("quantità mazzo: " + mazzo.length);
+    canvas_RAW_GeneraFiguraRitaglio("risorse/img/pc_carte.jpg", 0, 0, mazzo[0].w, mazzo[0].h);
+
+    console.log(mazzo.length);
     return;
 }

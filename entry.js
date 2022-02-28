@@ -4,6 +4,17 @@
 var window_w = innerWidth;
 var window_h = innerHeight;
 
+function loadImage(pathname, funct) {
+    var preload = new createjs.LoadQueue();
+    preload.addEventListener("fileload", funct);
+    preload.loadFile(pathname);
+}
+
+function handleFileComplete(event) {
+    return event;
+    //document.body.appendChild(event.result);
+}
+
 function controlla_dispositivo() {
 
     /* Storing user's device details in a variable*/
@@ -37,6 +48,3 @@ function entry_init() {
     gioco_inizio();
 
 }
-
-
-//var mazzo [] 
