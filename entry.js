@@ -4,15 +4,15 @@
 var window_w = innerWidth;
 var window_h = innerHeight;
 
-function loadImage(pathname, funct) {
+function loadImage(pathname) {
     var preload = new createjs.LoadQueue();
-    preload.addEventListener("fileload", funct);
+    preload.addEventListener("fileload", handleFileComplete);
+    //preload.addEventListener("fileload", funct);
     preload.loadFile(pathname);
 }
 
 function handleFileComplete(event) {
-    return event;
-    //document.body.appendChild(event.result);
+    console.log(event.result.width + "x" + event.result.height );
 }
 
 function controlla_dispositivo() {
