@@ -8,19 +8,6 @@ function rect() {
     return this;
 }
 
-function image_rect(pathname) {
-    
-    var img = new Image();
-    img.src = pathname;
-
-    img.onload = function() {
-        this.w = img.width;
-        this.h = img.height;
-    }
-
-    return img;
-}
-
 function delay(time) {
     return new Promise(resolve => {
         setTimeout(() => {
