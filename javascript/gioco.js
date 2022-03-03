@@ -76,15 +76,47 @@ async function inizializza_mazzo(pathname) {
 
 }
 
+function loop(interval, n) {
+    
+    if (n == 10) {
+        clearInterval(interval);
+        interval = null;
+        return;
+    }
+
+    n++;
+    console.log("count: " + n);
+    //setInterval(loop(interval, n), 1000);
+}
+
+function keyDown(e) {
+
+    if (e.KeyCode == 38) alert("keycode alerted");
+
+}
+
+function keyPresses() {
+    window.addEventListener("keydown", keyDown, false);
+    
+}
+
 async function gioco_inizio() {
 
     // background
     //canvas_RAW_GeneraFigura("risorse/img/poker_background.jpg", 0, 0, 500, 500);
 
-    var mazzo = await inizializza_mazzo("risorse/img/pc_carte.jpg");
+    let mazzo = await inizializza_mazzo("risorse/img/pc_carte.jpg");
+    if (mazzo == true) return;
+    
+    let count = 0;
 
-    canvas_RAW_GeneraFiguraRitaglio("risorse/img/pc_carte.jpg", mazzo[0].x, mazzo[0].y, mazzo[0].w, mazzo[0].h, 0, 0, 100, 100);
+    while (keyPresses) {
+        await delay(1000);
+        if (count == 10) break;
 
-    console.log(mazzo.length);
+        count++;
+        console.log("count: " + count);
+    }
+
     return;
 }
